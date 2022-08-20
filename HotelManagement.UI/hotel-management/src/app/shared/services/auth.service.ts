@@ -93,7 +93,7 @@ export class AuthService {
     })
     .pipe(
       map((data) => {      
-        return data;
+        return data.data;
       })
     );
   }

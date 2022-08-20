@@ -355,6 +355,7 @@ namespace HotelManagement.Bll.EntityCore.Concrete.Users
                 user.CreatedAt = hasData.CreatedAt;
                 user.DataStatus = hasData.DataStatus;
                 user.CreatedUserId = hasData.CreatedUserId;
+                user.Password = PasswordHash(user.Password);
                 Update(user);
                 Commit();
 

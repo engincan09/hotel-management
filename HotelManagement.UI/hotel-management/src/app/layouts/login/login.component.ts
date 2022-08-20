@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
         }
       }, (e) => {        
         if (!e.error.success) {
-          this.errorMessage = e.error.messages;       
+          this.errorMessage = e.messages;       
         } else {
           this.errorMessage = 'Sistem hatası! Lütfen daha sonra tekrar deneyin.'
         }
