@@ -21,6 +21,8 @@ using System.Security.Claims;
 using System.Text;
 using HotelManagement.Bll.Helpers;
 using Microsoft.EntityFrameworkCore;
+using HotelManagement.Core.Aspects.Autofac.Validation;
+using HotelManagement.Bll.ValidationRule.FluentValidation.Users;
 
 namespace HotelManagement.Bll.EntityCore.Concrete.Users
 {
@@ -233,6 +235,7 @@ namespace HotelManagement.Bll.EntityCore.Concrete.Users
         /// <summary>
         /// Yeni kullanıcı kaydı
         /// </summary>
+        [ValidationAspect(typeof(UserValidator))]
         public IResult AddUser(User user)
         {
             if (!string.IsNullOrWhiteSpace(user.Username) && FindBy(x => x.DataStatus == DataStatus.Activated && x.Username == user.Username).Any())
@@ -252,7 +255,7 @@ namespace HotelManagement.Bll.EntityCore.Concrete.Users
                 Commit();
                 return new SuccessResult(SystemConstants.AddedMessage);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return new ErrorResult(SystemConstants.AddedErrorMessage);
             }          
