@@ -1,0 +1,12 @@
+D:\Çalışmalar\HotelManagement\HotelManagement.Dal\bin\Debug\netcoreapp2.2\HotelManagement.Dal.deps.json
+D:\Çalışmalar\HotelManagement\HotelManagement.Dal\bin\Debug\netcoreapp2.2\HotelManagement.Dal.dll
+D:\Çalışmalar\HotelManagement\HotelManagement.Dal\bin\Debug\netcoreapp2.2\HotelManagement.Dal.pdb
+D:\Çalışmalar\HotelManagement\HotelManagement.Dal\bin\Debug\netcoreapp2.2\HotelManagement.Entity.dll
+D:\Çalışmalar\HotelManagement\HotelManagement.Dal\bin\Debug\netcoreapp2.2\HotelManagement.Entity.pdb
+D:\Çalışmalar\HotelManagement\HotelManagement.Dal\obj\Debug\netcoreapp2.2\HotelManagement.Dal.csprojAssemblyReference.cache
+D:\Çalışmalar\HotelManagement\HotelManagement.Dal\obj\Debug\netcoreapp2.2\HotelManagement.Dal.AssemblyInfoInputs.cache
+D:\Çalışmalar\HotelManagement\HotelManagement.Dal\obj\Debug\netcoreapp2.2\HotelManagement.Dal.AssemblyInfo.cs
+D:\Çalışmalar\HotelManagement\HotelManagement.Dal\obj\Debug\netcoreapp2.2\HotelManagement.Dal.csproj.CoreCompileInputs.cache
+D:\Çalışmalar\HotelManagement\HotelManagement.Dal\obj\Debug\netcoreapp2.2\HotelManagement.Dal.csproj.CopyComplete
+D:\Çalışmalar\HotelManagement\HotelManagement.Dal\obj\Debug\netcoreapp2.2\HotelManagement.Dal.dll
+D:\Çalışmalar\HotelManagement\HotelManagement.Dal\obj\Debug\netcoreapp2.2\HotelManagement.Dal.pdb

@@ -1,0 +1,67 @@
+<div class="content">
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">Kullanıcı Ekle/Güncelle</h3>
+        </div>
+        <div class="card-body">
+          <div class="custom-form">
+            <form id="quickForm" [formGroup]="userForm">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="exampleInputName">Ad *</label>
+                      <input [(ngModel)]="user.name" type="text" name="name" required class="form-control" formControlName="name"
+                        id="exampleInputName" placeholder="İsim Giriniz" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="exampleInputSurname">Soyad *</label>
+                      <input [(ngModel)]="user.surname"  type="text" name="surname" required class="form-control" formControlName="surname"
+                        id="exampleInputSurname" placeholder="Soyisim Giriniz">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="exampleInputPhone">Telefon Numarası *</label>
+                      <input [(ngModel)]="user.phoneNumber"  type="phone" name="surname" required class="form-control" formControlName="phoneNumber"
+                        id="exampleInputPhone" placeholder="Telefon Giriniz">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="exampleInputUsername">Kullanıcı Adı *</label>
+                      <input [(ngModel)]="user.username" type="text" name="username" required class="form-control" formControlName="username"
+                        id="exampleInputUsername" placeholder="Kullanıcı Adı Giriniz">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Mail Adresi *</label>
+                      <input [(ngModel)]="user.email" type="email" name="email" required class="form-control" formControlName="email"
+                        id="exampleInputEmail1" placeholder="Mail Adresi Giriniz">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Şifre *</label>
+                      <input  [(ngModel)]="user.password"  type="password" required name="password" class="form-control" formControlName="password"
+                        id="exampleInputPassword1" placeholder="Şifre Giriniz">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary" (click)="saveUser()">{{user?.id?'Güncelle':'Kaydet'}}</button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

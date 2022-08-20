@@ -1,0 +1,12 @@
+D:\Çalışmalar\HotelManagement\HotelManagement.Entity\bin\Debug\netcoreapp2.2\HotelManagement.Entity.deps.json
+D:\Çalışmalar\HotelManagement\HotelManagement.Entity\bin\Debug\netcoreapp2.2\HotelManagement.Entity.runtimeconfig.json
+D:\Çalışmalar\HotelManagement\HotelManagement.Entity\bin\Debug\netcoreapp2.2\HotelManagement.Entity.runtimeconfig.dev.json
+D:\Çalışmalar\HotelManagement\HotelManagement.Entity\bin\Debug\netcoreapp2.2\HotelManagement.Entity.dll
+D:\Çalışmalar\HotelManagement\HotelManagement.Entity\bin\Debug\netcoreapp2.2\HotelManagement.Entity.pdb
+D:\Çalışmalar\HotelManagement\HotelManagement.Entity\obj\Debug\netcoreapp2.2\HotelManagement.Entity.csprojAssemblyReference.cache
+D:\Çalışmalar\HotelManagement\HotelManagement.Entity\obj\Debug\netcoreapp2.2\HotelManagement.Entity.AssemblyInfoInputs.cache
+D:\Çalışmalar\HotelManagement\HotelManagement.Entity\obj\Debug\netcoreapp2.2\HotelManagement.Entity.AssemblyInfo.cs
+D:\Çalışmalar\HotelManagement\HotelManagement.Entity\obj\Debug\netcoreapp2.2\HotelManagement.Entity.csproj.CoreCompileInputs.cache
+D:\Çalışmalar\HotelManagement\HotelManagement.Entity\obj\Debug\netcoreapp2.2\HotelManagement.Entity.dll
+D:\Çalışmalar\HotelManagement\HotelManagement.Entity\obj\Debug\netcoreapp2.2\HotelManagement.Entity.pdb
+D:\Çalışmalar\HotelManagement\HotelManagement.Entity\obj\Debug\netcoreapp2.2\HotelManagement.Entity.genruntimeconfig.cache
