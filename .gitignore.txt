@@ -27,7 +27,6 @@
 .vs
 .DS_Store
 .vscode
-/Insoftpro.Bank/obj/Debug/netcoreapp2.2
 /Docs/documents
 
 # Build results
