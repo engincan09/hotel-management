@@ -11,7 +11,7 @@ using HotelManagement.Entity.Models.Systems;
 using HotelManagement.Entity.Shared;
 using HotelManagement.Core.Middleware;
 
-namespace HotelManagement.Api.Controllers
+namespace HotelManagement.Api.Controllers.Systems
 {
     [Route("api/[controller]")]
     [ApiController]
