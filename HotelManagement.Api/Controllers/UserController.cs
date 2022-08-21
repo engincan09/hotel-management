@@ -6,7 +6,7 @@ using HotelManagement.Entity.Models.Users;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HotelManagement.Api.Users
+namespace HotelManagement.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -32,6 +32,7 @@ namespace HotelManagement.Dal.EfCore
             /// <summary>
             /// https://docs.microsoft.com/en-us/ef/core/modeling/indexes#indexes
             /// </summary>
+            /// 
 
             /// IndexAttribute ile oluşturulan indexleri create eder.
             foreach (var entity in modelBuilder.Model.GetEntityTypes())

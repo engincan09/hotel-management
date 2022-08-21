@@ -13,9 +13,13 @@ namespace HotelManagement.Core.Helpers.Interceptors
         {
             var classAttributes = type.GetCustomAttributes<MethodInterceptionBaseAttribute>
                 (true).ToList();
-            var methodAttributes = type.GetMethod(method.Name)
-                .GetCustomAttributes<MethodInterceptionBaseAttribute>(true);
-            classAttributes.AddRange(methodAttributes);
+            var methodAttributes = type.GetMethod(method.Name, new[] { typeof(string) });
+
+            if (methodAttributes != null)
+            {
+                var methodAttributes2 = type.GetMethod(method.Name).GetCustomAttributes<MethodInterceptionBaseAttribute>(true);
+                classAttributes.AddRange(methodAttributes2);
+            }
 
 
             return classAttributes.OrderBy(x => x.Priority).ToArray();

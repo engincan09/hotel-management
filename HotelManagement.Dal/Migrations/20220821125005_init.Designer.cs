@@ -10,54 +10,64 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace HotelManagement.Dal.Migrations
 {
     [DbContext(typeof(HotelManagementContext))]
-    [Migration("20220820174421_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20220821125005_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
-                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
+                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
+                .HasAnnotation("ProductVersion", "3.1.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             modelBuilder.Entity("HotelManagement.Entity.Models.Systems.Lookup", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<bool?>("BooleanValue1");
+                    b.Property<bool?>("BooleanValue1")
+                        .HasColumnType("boolean");
 
-                    b.Property<bool?>("BooleanValue2");
+                    b.Property<bool?>("BooleanValue2")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Code")
+                        .HasColumnType("character varying(50)")
                         .HasMaxLength(50);
 
-                    b.Property<DateTime>("CreatedAt");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp without time zone");
 
-                    b.Property<int?>("CreatedUserId");
+                    b.Property<int?>("CreatedUserId")
+                        .HasColumnType("integer");
 
-                    b.Property<int>("DataStatus");
+                    b.Property<int>("DataStatus")
+                        .HasColumnType("integer");
 
-                    b.Property<DateTime?>("LastUpdatedAt");
+                    b.Property<DateTime?>("LastUpdatedAt")
+                        .HasColumnType("timestamp without time zone");
 
-                    b.Property<int?>("LastUpdatedUserId");
+                    b.Property<int?>("LastUpdatedUserId")
+                        .HasColumnType("integer");
 
-                    b.Property<int?>("LookupTypeId");
+                    b.Property<int?>("LookupTypeId")
+                        .HasColumnType("integer");
 
-                    b.Property<int?>("LookupTypeId1");
+                    b.Property<int?>("LookupTypeId1")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasColumnType("character varying(500)")
                         .HasMaxLength(500);
 
-                    b.Property<int?>("ParentId");
+                    b.Property<int?>("ParentId")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CreatedUserId");
-
-                    b.HasIndex("LastUpdatedUserId");
 
                     b.HasIndex("LookupTypeId1");
 
@@ -68,13 +78,16 @@ namespace HotelManagement.Dal.Migrations
 
             modelBuilder.Entity("HotelManagement.Entity.Models.Systems.LookupType", b =>
                 {
-                    b.Property<int>("Id");
+                    b.Property<int>("Id")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Description")
+                        .HasColumnType("character varying(500)")
                         .HasMaxLength(500);
 
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasColumnType("character varying(150)")
                         .HasMaxLength(150);
 
                     b.HasKey("Id");
@@ -111,39 +124,52 @@ namespace HotelManagement.Dal.Migrations
 
             modelBuilder.Entity("HotelManagement.Entity.Models.Systems.Page", b =>
                 {
-                    b.Property<int>("Id");
+                    b.Property<int>("Id")
+                        .HasColumnType("integer");
 
                     b.Property<string>("AllName")
+                        .HasColumnType("character varying(250)")
                         .HasMaxLength(250);
 
                     b.Property<string>("AllRouterLink")
+                        .HasColumnType("character varying(250)")
                         .HasMaxLength(250);
 
                     b.Property<string>("Color")
+                        .HasColumnType("character varying(10)")
                         .HasMaxLength(10);
 
                     b.Property<string>("Description")
+                        .HasColumnType("character varying(250)")
                         .HasMaxLength(250);
 
-                    b.Property<bool>("HomeWidget");
+                    b.Property<bool>("HomeWidget")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Icon")
+                        .HasColumnType("character varying(50)")
                         .HasMaxLength(50);
 
-                    b.Property<bool>("MenuShow");
+                    b.Property<bool>("MenuShow")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasColumnType("character varying(75)")
                         .HasMaxLength(75);
 
-                    b.Property<short>("Order");
+                    b.Property<short>("Order")
+                        .HasColumnType("smallint");
 
-                    b.Property<int?>("ParentId");
+                    b.Property<int?>("ParentId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("RouterLink")
+                        .HasColumnType("character varying(100)")
                         .HasMaxLength(100);
 
                     b.Property<string>("WidgetIcon")
+                        .HasColumnType("character varying(50)")
                         .HasMaxLength(50);
 
                     b.HasKey("Id");
@@ -232,31 +258,38 @@ namespace HotelManagement.Dal.Migrations
             modelBuilder.Entity("HotelManagement.Entity.Models.Systems.PagePermission", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<DateTime>("CreatedAt");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp without time zone");
 
-                    b.Property<int?>("CreatedUserId");
+                    b.Property<int?>("CreatedUserId")
+                        .HasColumnType("integer");
 
-                    b.Property<int>("DataStatus");
+                    b.Property<int>("DataStatus")
+                        .HasColumnType("integer");
 
-                    b.Property<bool>("Forbidden");
+                    b.Property<bool>("Forbidden")
+                        .HasColumnType("boolean");
 
-                    b.Property<DateTime?>("LastUpdatedAt");
+                    b.Property<DateTime?>("LastUpdatedAt")
+                        .HasColumnType("timestamp without time zone");
 
-                    b.Property<int?>("LastUpdatedUserId");
+                    b.Property<int?>("LastUpdatedUserId")
+                        .HasColumnType("integer");
 
-                    b.Property<int>("PageId");
+                    b.Property<int>("PageId")
+                        .HasColumnType("integer");
 
-                    b.Property<int?>("RoleId");
+                    b.Property<int?>("RoleId")
+                        .HasColumnType("integer");
 
-                    b.Property<int?>("UserId");
+                    b.Property<int?>("UserId")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CreatedUserId");
-
-                    b.HasIndex("LastUpdatedUserId");
 
                     b.HasIndex("PageId");
 
@@ -332,27 +365,31 @@ namespace HotelManagement.Dal.Migrations
             modelBuilder.Entity("HotelManagement.Entity.Models.Users.Role", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<DateTime>("CreatedAt");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp without time zone");
 
-                    b.Property<int?>("CreatedUserId");
+                    b.Property<int?>("CreatedUserId")
+                        .HasColumnType("integer");
 
-                    b.Property<int>("DataStatus");
+                    b.Property<int>("DataStatus")
+                        .HasColumnType("integer");
 
-                    b.Property<DateTime?>("LastUpdatedAt");
+                    b.Property<DateTime?>("LastUpdatedAt")
+                        .HasColumnType("timestamp without time zone");
 
-                    b.Property<int?>("LastUpdatedUserId");
+                    b.Property<int?>("LastUpdatedUserId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasColumnType("character varying(100)")
                         .HasMaxLength(100);
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CreatedUserId");
-
-                    b.HasIndex("LastUpdatedUserId");
 
                     b.ToTable("Roles");
 
@@ -369,48 +406,60 @@ namespace HotelManagement.Dal.Migrations
             modelBuilder.Entity("HotelManagement.Entity.Models.Users.User", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<DateTime>("CreatedAt");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp without time zone");
 
-                    b.Property<int?>("CreatedUserId");
+                    b.Property<int?>("CreatedUserId")
+                        .HasColumnType("integer");
 
-                    b.Property<int>("DataStatus");
+                    b.Property<int>("DataStatus")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Email")
                         .IsRequired()
+                        .HasColumnType("character varying(50)")
                         .HasMaxLength(50);
 
                     b.Property<string>("FullName")
                         .IsRequired()
+                        .HasColumnType("character varying(250)")
                         .HasMaxLength(250);
 
-                    b.Property<DateTime?>("LastUpdatedAt");
+                    b.Property<DateTime?>("LastUpdatedAt")
+                        .HasColumnType("timestamp without time zone");
 
-                    b.Property<int?>("LastUpdatedUserId");
+                    b.Property<int?>("LastUpdatedUserId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasColumnType("character varying(100)")
                         .HasMaxLength(100);
 
                     b.Property<string>("Password")
+                        .HasColumnType("character varying(150)")
                         .HasMaxLength(150);
 
-                    b.Property<string>("PhoneNumber");
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("text");
 
-                    b.Property<string>("Photo");
+                    b.Property<string>("Photo")
+                        .HasColumnType("text");
 
                     b.Property<string>("Surname")
                         .IsRequired()
+                        .HasColumnType("character varying(150)")
                         .HasMaxLength(150);
 
                     b.Property<string>("Username")
+                        .HasColumnType("character varying(50)")
                         .HasMaxLength(50);
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CreatedUserId")
-                        .IsUnique();
 
                     b.ToTable("Users");
 
@@ -431,27 +480,32 @@ namespace HotelManagement.Dal.Migrations
             modelBuilder.Entity("HotelManagement.Entity.Models.Users.UserRole", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<DateTime>("CreatedAt");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp without time zone");
 
-                    b.Property<int?>("CreatedUserId");
+                    b.Property<int?>("CreatedUserId")
+                        .HasColumnType("integer");
 
-                    b.Property<int>("DataStatus");
+                    b.Property<int>("DataStatus")
+                        .HasColumnType("integer");
 
-                    b.Property<DateTime?>("LastUpdatedAt");
+                    b.Property<DateTime?>("LastUpdatedAt")
+                        .HasColumnType("timestamp without time zone");
 
-                    b.Property<int?>("LastUpdatedUserId");
+                    b.Property<int?>("LastUpdatedUserId")
+                        .HasColumnType("integer");
 
-                    b.Property<int>("RoleId");
+                    b.Property<int>("RoleId")
+                        .HasColumnType("integer");
 
-                    b.Property<int>("UserId");
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CreatedUserId");
-
-                    b.HasIndex("LastUpdatedUserId");
 
                     b.HasIndex("RoleId");
 
@@ -473,19 +527,26 @@ namespace HotelManagement.Dal.Migrations
             modelBuilder.Entity("HotelManagement.Entity.Models.Users.UserSession", b =>
                 {
                     b.Property<long>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<DateTime>("LoginAt");
+                    b.Property<DateTime>("LoginAt")
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("RemoteIpAddress")
+                        .HasColumnType("character varying(30)")
                         .HasMaxLength(30);
 
-                    b.Property<string>("RequestHeader");
+                    b.Property<string>("RequestHeader")
+                        .HasColumnType("text");
 
                     b.Property<string>("Token")
+                        .HasColumnType("character varying(1500)")
                         .HasMaxLength(1500);
 
-                    b.Property<int>("UserId");
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
@@ -496,14 +557,6 @@ namespace HotelManagement.Dal.Migrations
 
             modelBuilder.Entity("HotelManagement.Entity.Models.Systems.Lookup", b =>
                 {
-                    b.HasOne("HotelManagement.Entity.Models.Users.User", "CreatedUser")
-                        .WithMany()
-                        .HasForeignKey("CreatedUserId");
-
-                    b.HasOne("HotelManagement.Entity.Models.Users.User", "LastUpdatedUser")
-                        .WithMany()
-                        .HasForeignKey("LastUpdatedUserId");
-
                     b.HasOne("HotelManagement.Entity.Models.Systems.LookupType", "LookupType")
                         .WithMany("Lookup")
                         .HasForeignKey("LookupTypeId1");
@@ -522,18 +575,11 @@ namespace HotelManagement.Dal.Migrations
 
             modelBuilder.Entity("HotelManagement.Entity.Models.Systems.PagePermission", b =>
                 {
-                    b.HasOne("HotelManagement.Entity.Models.Users.User", "CreatedUser")
-                        .WithMany()
-                        .HasForeignKey("CreatedUserId");
-
-                    b.HasOne("HotelManagement.Entity.Models.Users.User", "LastUpdatedUser")
-                        .WithMany()
-                        .HasForeignKey("LastUpdatedUserId");
-
                     b.HasOne("HotelManagement.Entity.Models.Systems.Page", "Page")
                         .WithMany("PagePermission")
                         .HasForeignKey("PageId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("HotelManagement.Entity.Models.Users.Role", "Role")
                         .WithMany()
@@ -544,43 +590,19 @@ namespace HotelManagement.Dal.Migrations
                         .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("HotelManagement.Entity.Models.Users.Role", b =>
-                {
-                    b.HasOne("HotelManagement.Entity.Models.Users.User", "CreatedUser")
-                        .WithMany()
-                        .HasForeignKey("CreatedUserId");
-
-                    b.HasOne("HotelManagement.Entity.Models.Users.User", "LastUpdatedUser")
-                        .WithMany()
-                        .HasForeignKey("LastUpdatedUserId");
-                });
-
-            modelBuilder.Entity("HotelManagement.Entity.Models.Users.User", b =>
-                {
-                    b.HasOne("HotelManagement.Entity.Models.Users.User", "CreatedUser")
-                        .WithOne("LastUpdatedUser")
-                        .HasForeignKey("HotelManagement.Entity.Models.Users.User", "CreatedUserId");
-                });
-
             modelBuilder.Entity("HotelManagement.Entity.Models.Users.UserRole", b =>
                 {
-                    b.HasOne("HotelManagement.Entity.Models.Users.User", "CreatedUser")
-                        .WithMany()
-                        .HasForeignKey("CreatedUserId");
-
-                    b.HasOne("HotelManagement.Entity.Models.Users.User", "LastUpdatedUser")
-                        .WithMany()
-                        .HasForeignKey("LastUpdatedUserId");
-
                     b.HasOne("HotelManagement.Entity.Models.Users.Role", "Role")
                         .WithMany()
                         .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("HotelManagement.Entity.Models.Users.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("HotelManagement.Entity.Models.Users.UserSession", b =>
@@ -588,7 +610,8 @@ namespace HotelManagement.Dal.Migrations
                     b.HasOne("HotelManagement.Entity.Models.Users.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

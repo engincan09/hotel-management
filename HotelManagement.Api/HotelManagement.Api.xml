@@ -4,21 +4,21 @@
         <name>HotelManagement.Api</name>
     </assembly>
     <members>
-        <member name="M:HotelManagement.Api.Docs.ImagesController.#ctor(Microsoft.AspNetCore.Hosting.IHostingEnvironment,HotelManagement.Core.Helpers.Files.IImageProccess)">
+        <member name="M:HotelManagement.Api.Controllers.ImagesController.#ctor(Microsoft.AspNetCore.Hosting.IHostingEnvironment,HotelManagement.Core.Helpers.Files.IImageProccess)">
             <summary>
             Yapıcı method.
             </summary>
             <param name="customDirectory"></param>
             <param name="imageProccess"></param>
         </member>
-        <member name="M:HotelManagement.Api.Docs.ImagesController.Get(System.String)">
+        <member name="M:HotelManagement.Api.Controllers.ImagesController.Get(System.String)">
             <summary>
             Resimleri croplar ve görüntüler
             </summary>
             <param name="name"></param>
             <returns></returns>
         </member>
-        <member name="M:HotelManagement.Api.Docs.ImagesController.GetQuery(System.String,System.String)">
+        <member name="M:HotelManagement.Api.Controllers.ImagesController.GetQuery(System.String,System.String)">
             <summary>
             Resimleri croplamaya ve görüntülenmesini sağlayan uçtur.
             </summary>
@@ -26,44 +26,14 @@
             <param name="name"></param>
             <returns></returns>
         </member>
-        <member name="M:HotelManagement.Api.Docs.ImagesController.Upload(HotelManagement.Dto.Shared.UploadImage)">
+        <member name="M:HotelManagement.Api.Controllers.ImagesController.Upload(HotelManagement.Dto.Shared.UploadImage)">
             <summary>
             Resimlerin yüklenmesini sağlayan uçtur.
             </summary>
             <param name="post"></param>
             <returns></returns>
         </member>
-        <member name="P:HotelManagement.Api.Startup._configuration">
-            <summary>
-            Confirations
-            </summary>
-        </member>
-        <member name="M:HotelManagement.Api.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
-            <summary>
-            Starter
-            </summary>
-            <param name="configuration"></param>
-        </member>
-        <member name="M:HotelManagement.Api.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
-            <summary>
-            Server configure
-            </summary>
-            <param name="app"></param>
-            <param name="env"></param>
-        </member>
-        <member name="T:HotelManagement.Api.SwaggerDefaultValues">
-            <summary>
-            Swagger default values
-            </summary>
-        </member>
-        <member name="M:HotelManagement.Api.SwaggerDefaultValues.Apply(Swashbuckle.AspNetCore.Swagger.Operation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
-            <summary>
-            Applies the filter to the specified operation using the given context.
-            </summary>
-            <param name="operation">The operation to apply the filter to.</param>
-            <param name="context">The current operation filter context.</param>
-        </member>
-        <member name="M:HotelManagement.Api.Systems.PageController.#ctor(HotelManagement.Bll.EntityCore.Abstract.Systems.IPageRepository,HotelManagement.Bll.EntityCore.Abstract.Systems.IPagePermissionRepository,HotelManagement.Core.Middleware.ICustomHttpContextAccessor)">
+        <member name="M:HotelManagement.Api.Controllers.PageController.#ctor(HotelManagement.Bll.EntityCore.Abstract.Systems.IPageRepository,HotelManagement.Bll.EntityCore.Abstract.Systems.IPagePermissionRepository,HotelManagement.Core.Middleware.ICustomHttpContextAccessor)">
             <summary>
             Yapıcı method.
             </summary>
@@ -71,78 +41,78 @@
             <param name="pagePermissionRepository"></param>
             <param name="customHttpContextAccessor"></param>
         </member>
-        <member name="M:HotelManagement.Api.Systems.PageController.GetAllPagePermissions">
+        <member name="M:HotelManagement.Api.Controllers.PageController.GetAllPagePermissions">
             <summary>
             Tüm Page verilerini getirir.
             </summary>
             <param name="sicilId">Bordro tekil bilgisidir.</param>
             <returns>Istenen bordro detay bilgisini döndürür.</returns>
         </member>
-        <member name="M:HotelManagement.Api.Systems.PageController.GetById(System.Int32)">
+        <member name="M:HotelManagement.Api.Controllers.PageController.GetById(System.Int32)">
             <summary>
             Tekil bilgisine göre page döndürür
             </summary>
         </member>
-        <member name="M:HotelManagement.Api.Systems.PageController.PostPage(HotelManagement.Entity.Models.Systems.Page)">
+        <member name="M:HotelManagement.Api.Controllers.PageController.PostPage(HotelManagement.Entity.Models.Systems.Page)">
             <summary>
             Yeni page oluşturur
             </summary>
         </member>
-        <member name="M:HotelManagement.Api.Systems.PageController.Update(HotelManagement.Entity.Models.Systems.Page)">
+        <member name="M:HotelManagement.Api.Controllers.PageController.Update(HotelManagement.Entity.Models.Systems.Page)">
             <summary>
             Page Günceller
             </summary>
         </member>
-        <member name="M:HotelManagement.Api.Systems.PageController.DeletePage(System.Int32)">
+        <member name="M:HotelManagement.Api.Controllers.PageController.DeletePage(System.Int32)">
             <summary>
             Page Siler
             </summary>
         </member>
-        <member name="M:HotelManagement.Api.Systems.PageController.GetPermissionPage">
+        <member name="M:HotelManagement.Api.Controllers.PageController.GetPermissionPage">
             <summary>
             Tüm Page verilerini getirir.
             </summary>
         </member>
-        <member name="M:HotelManagement.Api.Systems.PagePermissionController.#ctor(HotelManagement.Bll.EntityCore.Abstract.Systems.IPagePermissionRepository,HotelManagement.Core.Middleware.ICustomHttpContextAccessor)">
+        <member name="M:HotelManagement.Api.Controllers.PagePermissionController.#ctor(HotelManagement.Bll.EntityCore.Abstract.Systems.IPagePermissionRepository,HotelManagement.Core.Middleware.ICustomHttpContextAccessor)">
             <summary>
             Yapıcı method.
             </summary>
             <param name="service"></param>
             <param name="customHttpContextAccessor"></param>
         </member>
-        <member name="M:HotelManagement.Api.Systems.PagePermissionController.GetAllPagePermissions">
+        <member name="M:HotelManagement.Api.Controllers.PagePermissionController.GetAllPagePermissions">
             <summary>
             Tüm Page verilerini getirir.
             </summary>
             <param name="sicilId">Bordro tekil bilgisidir.</param>
             <returns>Istenen bordro detay bilgisini döndürür.</returns>
         </member>
-        <member name="M:HotelManagement.Api.Systems.PagePermissionController.GetById(System.Int32)">
+        <member name="M:HotelManagement.Api.Controllers.PagePermissionController.GetById(System.Int32)">
             <summary>
             Tekil bilgisine göre page döndürür
             </summary>
         </member>
-        <member name="M:HotelManagement.Api.Systems.PagePermissionController.PostPagePermission(HotelManagement.Dto.Shared.CustomPostPagePermission)">
+        <member name="M:HotelManagement.Api.Controllers.PagePermissionController.PostPagePermission(HotelManagement.Dto.Shared.CustomPostPagePermission)">
             <summary>
             Yeni page oluşturur
             </summary>
         </member>
-        <member name="M:HotelManagement.Api.Systems.PagePermissionController.CanActivate(System.Int32)">
+        <member name="M:HotelManagement.Api.Controllers.PagePermissionController.CanActivate(System.Int32)">
             <summary>
             Tekil bilgisine göre page döndürür
             </summary>
         </member>
-        <member name="M:HotelManagement.Api.Systems.PagePermissionController.UpdatePagePermission(HotelManagement.Entity.Models.Systems.PagePermission)">
+        <member name="M:HotelManagement.Api.Controllers.PagePermissionController.UpdatePagePermission(HotelManagement.Entity.Models.Systems.PagePermission)">
             <summary>
             Page Günceller
             </summary>
         </member>
-        <member name="M:HotelManagement.Api.Systems.PagePermissionController.DeletePagePermission(System.Int32)">
+        <member name="M:HotelManagement.Api.Controllers.PagePermissionController.DeletePagePermission(System.Int32)">
             <summary>
             Page Siler
             </summary>
         </member>
-        <member name="M:HotelManagement.Api.Users.UserController.#ctor(HotelManagement.Bll.EntityCore.Abstract.Users.IUserRepository,HotelManagement.Bll.EntityCore.Abstract.Systems.IPagePermissionRepository,HotelManagement.Bll.EntityCore.Abstract.Users.IUserRoleRepository,HotelManagement.Bll.EntityCore.Abstract.Systems.ILookupRepository,HotelManagement.Bll.EntityCore.Abstract.Users.IRoleRepository,HotelManagement.Core.Middleware.ICustomHttpContextAccessor)">
+        <member name="M:HotelManagement.Api.Controllers.UserController.#ctor(HotelManagement.Bll.EntityCore.Abstract.Users.IUserRepository,HotelManagement.Bll.EntityCore.Abstract.Systems.IPagePermissionRepository,HotelManagement.Bll.EntityCore.Abstract.Users.IUserRoleRepository,HotelManagement.Bll.EntityCore.Abstract.Systems.ILookupRepository,HotelManagement.Bll.EntityCore.Abstract.Users.IRoleRepository,HotelManagement.Core.Middleware.ICustomHttpContextAccessor)">
             <summary>
             Yapıcı method.
             </summary>
@@ -153,35 +123,46 @@
             <param name="roleRepository"></param>
             <param name="customHttpContextAccessor"></param>
         </member>
-        <member name="M:HotelManagement.Api.Users.UserController.GetAllUser">
+        <member name="M:HotelManagement.Api.Controllers.UserController.GetAllUser">
             <summary>
             Tüm User verilerini getirir.
             </summary>
         </member>
-        <member name="M:HotelManagement.Api.Users.UserController.GetById(System.Int32)">
+        <member name="M:HotelManagement.Api.Controllers.UserController.GetById(System.Int32)">
             <summary>
             Tekil bilgisine göre user döndürür
             </summary>
         </member>
-        <member name="M:HotelManagement.Api.Users.UserController.LoginUser">
+        <member name="M:HotelManagement.Api.Controllers.UserController.LoginUser">
             <summary>
             Giriş yapan kullanıcı bilgilerini döndürür.
             </summary>
         </member>
-        <member name="M:HotelManagement.Api.Users.UserController.PostUser(HotelManagement.Entity.Models.Users.User)">
+        <member name="M:HotelManagement.Api.Controllers.UserController.PostUser(HotelManagement.Entity.Models.Users.User)">
             <summary>
             Yeni kullanıcı kaydı
             </summary>
         </member>
-        <member name="M:HotelManagement.Api.Users.UserController.UpdateUser(HotelManagement.Entity.Models.Users.User)">
+        <member name="M:HotelManagement.Api.Controllers.UserController.UpdateUser(HotelManagement.Entity.Models.Users.User)">
             <summary>
             Kullanıcı kaydını değişen alanlara göre günceller.
             </summary>
         </member>
-        <member name="M:HotelManagement.Api.Users.UserController.Authenticate(HotelManagement.Dto.Systems.Login)">
+        <member name="M:HotelManagement.Api.Controllers.UserController.Authenticate(HotelManagement.Dto.Systems.Login)">
             <summary>
             Yeni giriş kaydı
             </summary>
+        </member>
+        <member name="P:YurtYonetim.Api.Startup._configuration">
+            <summary>
+            Confirations
+            </summary>
+        </member>
+        <member name="M:YurtYonetim.Api.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Starter
+            </summary>
+            <param name="configuration"></param>
         </member>
     </members>
 </doc>

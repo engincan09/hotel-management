@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace HotelManagement.Dal.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -51,11 +51,29 @@ namespace HotelManagement.Dal.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Roles",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    CreatedUserId = table.Column<int>(nullable: true),
+                    LastUpdatedUserId = table.Column<int>(nullable: true),
+                    DataStatus = table.Column<int>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    LastUpdatedAt = table.Column<DateTime>(nullable: true),
+                    Name = table.Column<string>(maxLength: 100, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Roles", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     CreatedUserId = table.Column<int>(nullable: true),
                     LastUpdatedUserId = table.Column<int>(nullable: true),
                     DataStatus = table.Column<int>(nullable: false),
@@ -73,12 +91,6 @@ namespace HotelManagement.Dal.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Users_Users_CreatedUserId",
-                        column: x => x.CreatedUserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -86,7 +98,7 @@ namespace HotelManagement.Dal.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     CreatedUserId = table.Column<int>(nullable: true),
                     LastUpdatedUserId = table.Column<int>(nullable: true),
                     DataStatus = table.Column<int>(nullable: false),
@@ -104,18 +116,6 @@ namespace HotelManagement.Dal.Migrations
                 {
                     table.PrimaryKey("PK_Lookup", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Lookup_Users_CreatedUserId",
-                        column: x => x.CreatedUserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Lookup_Users_LastUpdatedUserId",
-                        column: x => x.LastUpdatedUserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
                         name: "FK_Lookup_LookupType_LookupTypeId1",
                         column: x => x.LookupTypeId1,
                         principalTable: "LookupType",
@@ -130,64 +130,11 @@ namespace HotelManagement.Dal.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Roles",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    CreatedUserId = table.Column<int>(nullable: true),
-                    LastUpdatedUserId = table.Column<int>(nullable: true),
-                    DataStatus = table.Column<int>(nullable: false),
-                    CreatedAt = table.Column<DateTime>(nullable: false),
-                    LastUpdatedAt = table.Column<DateTime>(nullable: true),
-                    Name = table.Column<string>(maxLength: 100, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Roles", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Roles_Users_CreatedUserId",
-                        column: x => x.CreatedUserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Roles_Users_LastUpdatedUserId",
-                        column: x => x.LastUpdatedUserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "UserSessions",
-                columns: table => new
-                {
-                    Id = table.Column<long>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    UserId = table.Column<int>(nullable: false),
-                    Token = table.Column<string>(maxLength: 1500, nullable: true),
-                    RequestHeader = table.Column<string>(nullable: true),
-                    RemoteIpAddress = table.Column<string>(maxLength: 30, nullable: true),
-                    LoginAt = table.Column<DateTime>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserSessions", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_UserSessions_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "PagePermissions",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     CreatedUserId = table.Column<int>(nullable: true),
                     LastUpdatedUserId = table.Column<int>(nullable: true),
                     DataStatus = table.Column<int>(nullable: false),
@@ -201,18 +148,6 @@ namespace HotelManagement.Dal.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_PagePermissions", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_PagePermissions_Users_CreatedUserId",
-                        column: x => x.CreatedUserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_PagePermissions_Users_LastUpdatedUserId",
-                        column: x => x.LastUpdatedUserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_PagePermissions_Pages_PageId",
                         column: x => x.PageId,
@@ -238,7 +173,7 @@ namespace HotelManagement.Dal.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     CreatedUserId = table.Column<int>(nullable: true),
                     LastUpdatedUserId = table.Column<int>(nullable: true),
                     DataStatus = table.Column<int>(nullable: false),
@@ -251,18 +186,6 @@ namespace HotelManagement.Dal.Migrations
                 {
                     table.PrimaryKey("PK_UserRoles", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_UserRoles_Users_CreatedUserId",
-                        column: x => x.CreatedUserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_UserRoles_Users_LastUpdatedUserId",
-                        column: x => x.LastUpdatedUserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
                         name: "FK_UserRoles_Roles_RoleId",
                         column: x => x.RoleId,
                         principalTable: "Roles",
@@ -270,6 +193,29 @@ namespace HotelManagement.Dal.Migrations
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_UserRoles_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserSessions",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    UserId = table.Column<int>(nullable: false),
+                    Token = table.Column<string>(maxLength: 1500, nullable: true),
+                    RequestHeader = table.Column<string>(nullable: true),
+                    RemoteIpAddress = table.Column<string>(maxLength: 30, nullable: true),
+                    LoginAt = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserSessions", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_UserSessions_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
@@ -360,16 +306,6 @@ namespace HotelManagement.Dal.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Lookup_CreatedUserId",
-                table: "Lookup",
-                column: "CreatedUserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Lookup_LastUpdatedUserId",
-                table: "Lookup",
-                column: "LastUpdatedUserId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Lookup_LookupTypeId1",
                 table: "Lookup",
                 column: "LookupTypeId1");
@@ -378,16 +314,6 @@ namespace HotelManagement.Dal.Migrations
                 name: "IX_Lookup_ParentId",
                 table: "Lookup",
                 column: "ParentId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PagePermissions_CreatedUserId",
-                table: "PagePermissions",
-                column: "CreatedUserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PagePermissions_LastUpdatedUserId",
-                table: "PagePermissions",
-                column: "LastUpdatedUserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PagePermissions_PageId",
@@ -410,26 +336,6 @@ namespace HotelManagement.Dal.Migrations
                 column: "ParentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Roles_CreatedUserId",
-                table: "Roles",
-                column: "CreatedUserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Roles_LastUpdatedUserId",
-                table: "Roles",
-                column: "LastUpdatedUserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_UserRoles_CreatedUserId",
-                table: "UserRoles",
-                column: "CreatedUserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_UserRoles_LastUpdatedUserId",
-                table: "UserRoles",
-                column: "LastUpdatedUserId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_UserRoles_RoleId",
                 table: "UserRoles",
                 column: "RoleId");
@@ -438,12 +344,6 @@ namespace HotelManagement.Dal.Migrations
                 name: "IX_UserRoles_UserId",
                 table: "UserRoles",
                 column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Users_CreatedUserId",
-                table: "Users",
-                column: "CreatedUserId",
-                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserSessions_UserId",

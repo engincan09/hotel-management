@@ -306,13 +306,7 @@ namespace HotelManagement.Bll.EntityCore.Concrete.Users
                                               (a.Email == login.Email || a.Username == login.Email)
                                            && a.Password == PasswordHash(login.Password)
                                            && a.DataStatus == DataStatus.Activated)
-                                      .Select(a => new
-                                      {
-                                          a.Id,
-                                          a.Name,
-                                          a.Surname,
-                                          a.Photo,
-                                      })
+                                    
                                       .FirstOrDefault();
 
             if (user == null)
@@ -348,18 +342,20 @@ namespace HotelManagement.Bll.EntityCore.Concrete.Users
         {
             var hasData = FindBy(m=> m.DataStatus == DataStatus.Activated && 
                                       m.Id == user.Id)
-                          .AsNoTracking()
                           .FirstOrDefault();
             if (hasData== null)
                 return new ErrorDataResult<User>(null, SystemConstants.NoData);
 
             try
             {
-                user.CreatedAt = hasData.CreatedAt;
-                user.DataStatus = hasData.DataStatus;
-                user.CreatedUserId = hasData.CreatedUserId;
-                user.Password = PasswordHash(user.Password);
-                Update(user);
+                hasData.Name = user.Name;
+                hasData.Surname = user.Surname;
+                hasData.FullName = user.FullName;
+                hasData.PhoneNumber = user.PhoneNumber;
+                hasData.Email = user.Email;
+                hasData.Username = user.Username;
+                hasData.Password = PasswordHash(user.Password);
+                Update(hasData);
                 Commit();
 
                 return new SuccessResult(SystemConstants.UpdatedMessage);

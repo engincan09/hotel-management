@@ -33,15 +33,6 @@ namespace HotelManagement.Entity.Shared
         /// </summary>
         public DateTime? LastUpdatedAt { get; set; }
 
-        /// <summary>
-        /// Kaydı oluştuna kişi bilgilerini döndürür.
-        /// </summary>
-        public User CreatedUser { get; set; }
-
-        /// <summary>
-        /// Kaydı son güncelleyen kişi bilgilerini döndürür.
-        /// </summary>
-        public User LastUpdatedUser { get; set; }
     }
 
     /// <summary>

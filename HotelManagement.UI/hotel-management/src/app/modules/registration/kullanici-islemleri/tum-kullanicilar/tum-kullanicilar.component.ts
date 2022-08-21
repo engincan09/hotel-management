@@ -26,9 +26,11 @@ export class TumKullanicilarComponent implements OnInit {
       this.confirmationDialogService
         .confirm('İşlem Onayı', 'Kullanıcı silmek istediğinize emin misiniz ?')
         .then((confirmed) => {
-          this.userService.deleteUser(id).subscribe((res) => {
-            this.uploadData();
-          });
+          if (confirmed) {
+            this.userService.deleteUser(id).subscribe((res) => {
+              this.uploadData();
+            });
+          }      
         });
     }
   }

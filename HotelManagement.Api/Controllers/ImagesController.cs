@@ -9,7 +9,7 @@ using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace HotelManagement.Api.Docs
+namespace HotelManagement.Api.Controllers
 {
     [Route("api/docs/images")]
     [ApiController]
