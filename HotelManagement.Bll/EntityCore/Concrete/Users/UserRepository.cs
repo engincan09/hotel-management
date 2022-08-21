@@ -344,6 +344,7 @@ namespace HotelManagement.Bll.EntityCore.Concrete.Users
         /// <param name="user"></param>
         /// <returns></returns>
         [CacheRemoveAspect("IUserRepository.Get")]
+        [ValidationAspect(typeof(UserValidator))]
         public IResult UpdateUser(User user)
         {
             var hasData = FindBy(m=> m.DataStatus == DataStatus.Activated && 
@@ -370,8 +371,6 @@ namespace HotelManagement.Bll.EntityCore.Concrete.Users
             {
                 return new ErrorDataResult<User>(null, SystemConstants.UpdatedErrorMessage);
             }
-
-
         }
     }
 }
