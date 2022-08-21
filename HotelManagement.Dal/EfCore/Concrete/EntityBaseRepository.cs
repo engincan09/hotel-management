@@ -1,5 +1,6 @@
 ﻿using HotelManagement.Dal.EfCore.Abstract;
 using HotelManagement.Entity.Shared;
+using HotelManagement_Entity.Shared;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
@@ -13,7 +14,7 @@ using System.Transactions;
 
 namespace HotelManagement.Dal.EfCore.Concrete
 {
-    public class EntityBaseRepository<T> : HttpContextAccessor, IEntityBaseRepository<T> where T : class, new()
+    public class EntityBaseRepository<T> : HttpContextAccessor, IEntityBaseRepository<T> where T : class, IEntity, new()
     {
         private readonly DbContext _context;
 
@@ -65,11 +66,6 @@ namespace HotelManagement.Dal.EfCore.Concrete
             IQueryable<T> query = _context.Set<T>();
             query = includeProperties.Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
             return query.Where(predicate).FirstOrDefault();
-        }
-
-        public virtual IQueryable<T> FindBy(Expression<Func<T, bool>> predicate)
-        {
-            return _context.Set<T>().Where(predicate);
         }
 
         public virtual IQueryable<T> FindByAsNoTracking(Expression<Func<T, bool>> predicate)
@@ -128,14 +124,6 @@ namespace HotelManagement.Dal.EfCore.Concrete
         public virtual void Update(T entity)
         {
             _context.Update<T>(entity);
-        }
-
-        public virtual void Update(T entity, params Expression<Func<T, object>>[] updatedProperties)
-        {
-            foreach (var property in updatedProperties)
-            {
-                _context.Entry<T>(entity).Property(property).IsModified = true;
-            }
         }
 
         public virtual void Delete(T entity)

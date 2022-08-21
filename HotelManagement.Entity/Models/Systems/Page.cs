@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using HotelManagement_Entity.Shared;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -7,7 +8,7 @@ namespace HotelManagement.Entity.Models.Systems
     /// <summary>
     /// Sistemdeki tüm sayfaların tutulduğu alandır.
     /// </summary>
-    public class Page
+    public class Page : IEntity
     {
         /// <summary>
         /// Kayıt tekil bilgisidir.

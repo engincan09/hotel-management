@@ -1,4 +1,6 @@
 ﻿
+using HotelManagement.Caching;
+using HotelManagement.Caching.Microsoft;
 using HotelManagement.Core.Middleware;
 using HotelManagement.Utilities.IoC;
 using Microsoft.AspNetCore.Http;
@@ -16,6 +18,7 @@ namespace HotelManagement.DependencyResolvers
         {
 
             serviceCollection.AddMemoryCache();
+            serviceCollection.AddSingleton<ICacheManager, MemoryCacheManager>();
             serviceCollection.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
     }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using HotelManagement_Entity.Shared;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace HotelManagement.Entity.Models.Systems
@@ -6,7 +7,7 @@ namespace HotelManagement.Entity.Models.Systems
     /// <summary>
     /// Tutulan tip tablolarının niteleyici tip tablosudur.
     /// </summary>
-    public class LookupType
+    public class LookupType : IEntity
     {
         /// <summary>
         /// Niteleyici tip tekil bilgisidir.

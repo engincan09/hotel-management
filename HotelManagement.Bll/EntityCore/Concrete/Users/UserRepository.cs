@@ -23,6 +23,7 @@ using HotelManagement.Bll.Helpers;
 using Microsoft.EntityFrameworkCore;
 using HotelManagement.Core.Aspects.Autofac.Validation;
 using HotelManagement.Bll.ValidationRule.FluentValidation.Users;
+using HotelManagement.Aspects.Autofac.Caching;
 
 namespace HotelManagement.Bll.EntityCore.Concrete.Users
 {
@@ -170,6 +171,7 @@ namespace HotelManagement.Bll.EntityCore.Concrete.Users
         /// Aktif olan tüm kullanıcı listesini döner
         /// </summary>
         /// <returns></returns>
+        [CacheAspect(duration: 10)]
         public IDataResult<IQueryable<User>> GetAllUser()
         {
             var result = FindBy(m => m.DataStatus == DataStatus.Activated);
@@ -181,6 +183,7 @@ namespace HotelManagement.Bll.EntityCore.Concrete.Users
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        [CacheAspect(duration: 10)]
         public IDataResult<User> GetById(int id)
         {
             var result = FindBy(m => m.DataStatus == DataStatus.Activated &&
@@ -236,6 +239,7 @@ namespace HotelManagement.Bll.EntityCore.Concrete.Users
         /// Yeni kullanıcı kaydı
         /// </summary>
         [ValidationAspect(typeof(UserValidator))]
+        [CacheRemoveAspect("IUserRepository.Get")]
         public IResult AddUser(User user)
         {
             if (!string.IsNullOrWhiteSpace(user.Username) && FindBy(x => x.DataStatus == DataStatus.Activated && x.Username == user.Username).Any())
@@ -266,6 +270,7 @@ namespace HotelManagement.Bll.EntityCore.Concrete.Users
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        [CacheRemoveAspect("IUserRepository.Get")]
         public IResult DeleteUser(int id)
         {
             var result = FindBy(a => a.Id == id).FirstOrDefault();
@@ -332,12 +337,13 @@ namespace HotelManagement.Bll.EntityCore.Concrete.Users
             };
             return new SuccessDataResult<ResponseLogin>(responseLogin);
         }
-        
+
         /// <summary>
         /// Kullanıcı kaydını değişen alanlara göre günceller.
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
+        [CacheRemoveAspect("IUserRepository.Get")]
         public IResult UpdateUser(User user)
         {
             var hasData = FindBy(m=> m.DataStatus == DataStatus.Activated && 

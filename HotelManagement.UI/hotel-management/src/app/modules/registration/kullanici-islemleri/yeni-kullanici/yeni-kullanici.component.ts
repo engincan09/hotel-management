@@ -56,7 +56,7 @@ export class YeniKullaniciComponent implements OnInit {
       (res) => {
         if (res.success) {
           this.toastr.success(res.messages, 'Başarılı!');
-        this.routeChange();
+          this.routeChange();
         }else{
           this.toastr.error(res.messages, 'Hata!');
         }

@@ -22,8 +22,6 @@ namespace HotelManagement.Dal.EfCore.Abstract
 
         T GetSingle(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties);
 
-        IQueryable<T> FindBy(Expression<Func<T, bool>> predicate);
-
         IQueryable<T> FindByAsNoTracking(Expression<Func<T, bool>> predicate);
 
         IQueryable<T> FindBy(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includes);
@@ -39,8 +37,6 @@ namespace HotelManagement.Dal.EfCore.Abstract
         Task AddRangeAsync(IEnumerable<T> entityList);
 
         void Update(T entity);
-
-        void Update(T entity, params Expression<Func<T, object>>[] updatedProperties);
 
         void Delete(T entity);
 

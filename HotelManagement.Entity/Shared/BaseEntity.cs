@@ -1,4 +1,5 @@
 ﻿using HotelManagement.Entity.Models.Users;
+using HotelManagement_Entity.Shared;
 using System;
 
 namespace HotelManagement.Entity.Shared
@@ -6,7 +7,7 @@ namespace HotelManagement.Entity.Shared
     /// <summary>
     /// Genel olarak kullanıcı taraflı değişikliklerin yapıldığı tablolarda basit değerlerin tutulduğu alanlardır.
     /// </summary>
-    public class BaseEntity
+    public class BaseEntity : IEntity
     {
         /// <summary>
         /// Kaydı oluşturan kişi kullanıcı tekil bilgisidir.
