@@ -10,11 +10,11 @@ namespace HotelManagement.Bll.ValidationRule.FluentValidation.Users
     {
         public UserValidator()
         {
-            RuleFor(p => p.Name).NotEmpty();
-            RuleFor(p => p.Surname).NotEmpty();
-            RuleFor(p => p.PhoneNumber).NotEmpty();
-            RuleFor(p => p.Email).NotEmpty();
-            RuleFor(p => p.Password).NotEmpty();
+            RuleFor(p => p.Name).NotEmpty().WithMessage("Lütfen kullanıcının adını boş geçmeyiniz.");
+            RuleFor(p => p.Surname).NotEmpty().WithMessage("Lütfen kullanıcının soyadını boş geçmeyiniz.");
+            RuleFor(p => p.PhoneNumber).NotEmpty().WithMessage("Lütfen kullanıcının telefon numarasını boş geçmeyiniz.");
+            RuleFor(p => p.Email).NotEmpty().WithMessage("Lütfen kullanıcının emaril adresini boş geçmeyiniz.");
+            RuleFor(p => p.Password).NotEmpty().WithMessage("Lütfen kullanıcının şifresini boş geçmeyiniz.");
         }
     }
 }
