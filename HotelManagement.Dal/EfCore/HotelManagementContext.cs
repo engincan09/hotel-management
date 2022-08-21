@@ -2,6 +2,7 @@
 using HotelManagement.Entity.Models.Systems;
 using HotelManagement.Entity.Models.Users;
 using HotelManagement.Entity.Shared;
+using HotelManagement_Entity.Models.Employees;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -25,6 +26,10 @@ namespace HotelManagement.Dal.EfCore
         public DbSet<LookupType> LookupType { get; set; }
         public DbSet<Page> Pages { get; set; }
         public DbSet<PagePermission> PagePermissions { get; set; }
+        #endregion
+
+        #region Employee
+        public DbSet<Employee> Employee { get; set; }
         #endregion
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -58,7 +58,5 @@ namespace HotelManagement.Entity.Models.Users
         /// </summary>
         [MaxLength(150)]
         public string Password { get; set; }
-
-
     }
 }
