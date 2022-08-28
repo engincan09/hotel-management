@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { User } from '../models/user.model';
 import { environment } from 'src/environments/environment';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CustomvalidationService } from 'src/app/shared/services/custom-validation.service';
 declare var $;
 @Component({
   selector: 'app-yeni-kullanici',
@@ -16,14 +17,15 @@ export class YeniKullaniciComponent implements OnInit {
   user: User = new User();
   userId: number;
   environment = environment;
-
+  submitted = false;
   constructor(
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
     private userService: UserService,
     private activatedRoute: ActivatedRoute,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private customValidator: CustomvalidationService
   ) {}
   ngOnInit() {
     this.activatedRoute.params.subscribe((params) => {
@@ -37,7 +39,12 @@ export class YeniKullaniciComponent implements OnInit {
     });
   }
 
+  get formControl() {
+    return this.userForm.controls;
+  }
+
   saveUser() {
+    this.submitted = true;
     if (this.userForm.valid) {
       let model: User = Object.assign({}, this.userForm.value);
       model.fullName = model.name + ' ' + model.surname;
@@ -81,9 +88,9 @@ export class YeniKullaniciComponent implements OnInit {
       name: ['', Validators.required],
       surname: ['', Validators.required],
       phoneNumber: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', Validators.required, Validators.email],
       password: ['', Validators.required],
-      username: ['', Validators.required],
+      username: ['', [Validators.required],this.customValidator.userNameValidator.bind(this.customValidator)],
       // photo:['',Validators.required]
     });
   }
@@ -93,10 +100,10 @@ export class YeniKullaniciComponent implements OnInit {
       name: ['', Validators.required],
       surname: ['', Validators.required],
       phoneNumber: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', Validators.required, Validators.email],
       password: ['', Validators.required],
-      username: ['', Validators.required],
-      id: this.userId,
+      username: ['', [Validators.required],this.customValidator.userNameValidator.bind(this.customValidator)],
+      id:this.userId
     });
   }
 

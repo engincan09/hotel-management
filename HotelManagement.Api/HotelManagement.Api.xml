@@ -33,6 +33,39 @@
             <param name="post"></param>
             <returns></returns>
         </member>
+        <member name="M:HotelManagement.Api.Controllers.Employees.EmployeeController.#ctor(HotelManagement.Bll.EntityCore.Abstract.Employees.IEmployeeRepository)">
+            <summary>
+            Yapıcı
+            </summary>
+            <param name="employeeRepository"></param>
+        </member>
+        <member name="M:HotelManagement.Api.Controllers.Employees.EmployeeController.GetAllEmployee">
+            <summary>
+            Tüm çalışan verilerini getirir.
+            </summary>
+        </member>
+        <member name="M:HotelManagement.Api.Controllers.Employees.EmployeeController.GetById(System.Int32)">
+            <summary>
+            Tekil bilgisine göre çalışan döndürür
+            </summary>
+        </member>
+        <member name="M:HotelManagement.Api.Controllers.Employees.EmployeeController.PostEmployee(HotelManagement_Entity.Models.Employees.Employee)">
+            <summary>
+            Yeni Çalışan kaydı
+            </summary>
+        </member>
+        <member name="M:HotelManagement.Api.Controllers.Employees.EmployeeController.UpdateEmployee(HotelManagement_Entity.Models.Employees.Employee)">
+            <summary>
+            Çalışan kaydını değişen alanlara göre günceller.
+            </summary>
+        </member>
+        <member name="M:HotelManagement.Api.Controllers.Employees.EmployeeController.DeleteEmployee(System.Int32)">
+            <summary>
+            Çalışan kaydını siler
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
         <member name="M:HotelManagement.Api.Controllers.Systems.PageController.#ctor(HotelManagement.Bll.EntityCore.Abstract.Systems.IPageRepository,HotelManagement.Bll.EntityCore.Abstract.Systems.IPagePermissionRepository,HotelManagement.Core.Middleware.ICustomHttpContextAccessor)">
             <summary>
             Yapıcı method.
