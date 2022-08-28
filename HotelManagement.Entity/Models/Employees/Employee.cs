@@ -72,6 +72,7 @@ namespace HotelManagement_Entity.Models.Employees
         InsanKaynaklari,
         InsanKaynaklariMudur,
         SatinAlma,
-        SatinAlmaMudur
+        SatinAlmaMudur,
+        Stajyer
     }
 }

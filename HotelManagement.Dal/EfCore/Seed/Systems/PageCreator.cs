@@ -80,6 +80,41 @@ namespace HotelManagement.Dal.EfCore.Seed.Systems
                     AllRouterLink = "/yonetim/idari-isler/kullanici-islemleri/tum-kullanicilar/yeni-kullanici",
                     MenuShow = true
                 },
+
+                 new Page
+                {
+                    Id = 7,
+                    ParentId =3,
+                    Order = 1,
+                    Name = "Personel İşlemleri",
+                    AllName = "Yönetim Paneli / İdari İşler/ Personel İşlemleri",
+                    RouterLink = "/personel-islemleri",
+                    AllRouterLink = "/yonetim/idari-isler/personel-islemleri",
+                    Icon = "fa fa-users",
+                    MenuShow = true
+                },
+                new Page
+                {
+                    Id = 8,
+                    ParentId = 7,
+                    Order = 0,
+                    Name = "Tüm Kullanıcılar",
+                    AllName = "Yönetim Paneli / İdari İşler/ Personel İşlemleri / Tüm Personeller",
+                    RouterLink = "/tum-personeller",
+                    AllRouterLink = "/yonetim/idari-isler/personel-islemleri/tum-personeller",
+                    MenuShow = true
+                },
+                new Page
+                {
+                    Id = 9,
+                    ParentId = 7,
+                    Order = 1,
+                    Name = "Yeni Kullanıcı",
+                    AllName = "Yönetim Paneli / İdari İşler/ Personel İşlemleri / Yeni Personel",
+                    RouterLink = "/yeni-personel",
+                    AllRouterLink = "/yonetim/idari-isler/personel-islemleri/tum-kullanicilar/yeni-personel",
+                    MenuShow = true
+                },
         };
         public static void Create(ModelBuilder modelBuilder)
         {
