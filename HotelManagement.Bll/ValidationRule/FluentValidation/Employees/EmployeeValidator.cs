@@ -14,7 +14,6 @@ namespace HotelManagement.Bll.ValidationRule.FluentValidation.Employees
             RuleFor(p => p.Surname).NotEmpty().WithMessage("Lütfen çalışan soyadını boş geçmeyiniz.");
             RuleFor(p => p.PhoneNumber).NotEmpty().WithMessage("Lütfen çalışan telefonunu boş geçmeyiniz.");
             RuleFor(p => p.Email).NotEmpty().WithMessage("Lütfen çalışan mail adresini boş geçmeyiniz.");
-            RuleFor(p => p.EmployeeType).NotEmpty().WithMessage("Lütfen çalışan tipini boş geçmeyiniz.");
             RuleFor(p => p.JobStartDate).NotEmpty().WithMessage("Lütfen çalışanın işe başlangıç tarihini boş geçmeyiniz.");
         }
     }

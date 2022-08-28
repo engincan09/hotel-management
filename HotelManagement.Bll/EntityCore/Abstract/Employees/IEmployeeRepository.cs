@@ -1,5 +1,6 @@
 ﻿using HotelManagement.Core.Utilities.Results.Abstract;
 using HotelManagement.Dal.EfCore.Abstract;
+using HotelManagement.Dto.Employees;
 using HotelManagement_Entity.Models.Employees;
 using System;
 using System.Collections.Generic;
@@ -19,5 +20,7 @@ namespace HotelManagement.Bll.EntityCore.Abstract.Employees
         IResult UpdateEmployee(Employee employee);
 
         IResult DeleteEmployee(int id);
+
+        IDataResult<IQueryable<EmployeeDto>> GetAllEmployeeDetailTable();
     }
 }

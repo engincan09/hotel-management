@@ -66,6 +66,11 @@
             <param name="key"></param>
             <returns></returns>
         </member>
+        <member name="M:HotelManagement.Api.Controllers.Employees.EmployeeController.GetAllEmployeeDetailTable">
+            <summary>
+            Tüm personelleri gride basmak amacıyla detay bilgileri ile birlikte döndürür.
+            </summary>
+        </member>
         <member name="M:HotelManagement.Api.Controllers.Systems.PageController.#ctor(HotelManagement.Bll.EntityCore.Abstract.Systems.IPageRepository,HotelManagement.Bll.EntityCore.Abstract.Systems.IPagePermissionRepository,HotelManagement.Core.Middleware.ICustomHttpContextAccessor)">
             <summary>
             Yapıcı method.
@@ -184,6 +189,11 @@
         <member name="M:HotelManagement.Api.Controllers.Users.UserController.Authenticate(HotelManagement.Dto.Systems.Login)">
             <summary>
             Yeni giriş kaydı
+            </summary>
+        </member>
+        <member name="M:HotelManagement.Api.Controllers.Users.UserController.GetAllUsersForSelection">
+            <summary>
+            Select boxlar için kullanıcı listesi döndürür
             </summary>
         </member>
         <member name="P:YurtYonetim.Api.Startup._configuration">

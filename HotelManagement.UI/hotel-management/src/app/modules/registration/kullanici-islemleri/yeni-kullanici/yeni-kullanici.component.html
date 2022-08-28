@@ -7,7 +7,7 @@
         </div>
         <div class="card-body">
           <div class="custom-form">
-            <form id="quickForm" [formGroup]="userForm" (ngSubmit)="saveUser()">
+            <form id="quickForm" [formGroup]="userForm">
               <div class="card-body">
                 <div class="row">
                   <div class="col-md-6">
@@ -17,7 +17,7 @@
                         formControlName="name" id="exampleInputName" placeholder="İsim Giriniz" required>
                       <span class="text-danger ml-1"
                         *ngIf="(formControl.name.touched || submitted) && formControl.name.errors?.required">
-                        Lütfen bir isim giriniz!
+                        <sup>*</sup>Lütfen bir isim giriniz!
                       </span>
                     </div>
                   </div>
@@ -28,7 +28,7 @@
                         formControlName="surname" id="exampleInputSurname" placeholder="Soyisim Giriniz">
                       <span class="text-danger ml-1"
                         *ngIf="(formControl.surname.touched || submitted) && formControl.surname.errors?.required">
-                        Lütfen bir soyisim giriniz!
+                        <sup>*</sup>Lütfen bir soyisim giriniz!
                       </span>
                     </div>
                   </div>
@@ -40,7 +40,7 @@
                         placeholder="Telefon Giriniz">
                       <span class="text-danger ml-1"
                         *ngIf="(formControl.phoneNumber.touched || submitted) && formControl.phoneNumber.errors?.required">
-                        Lütfen bir telefon giriniz!
+                        <sup>*</sup>Lütfen bir telefon giriniz!
                       </span>
                     </div>
                   </div>
@@ -51,7 +51,7 @@
                         formControlName="username" id="exampleInputUsername" placeholder="Kullanıcı Adı Giriniz">
                       <span class="text-danger ml-1"
                         *ngIf="(formControl.username.touched || submitted) && formControl.username.errors?.required">
-                        Lütfen bir telefon numarası giriniz!
+                        <sup>*</sup>Lütfen bir telefon numarası giriniz!
                       </span>
                     </div>
                   </div>
@@ -62,7 +62,7 @@
                         formControlName="email" id="exampleInputEmail1" placeholder="Mail Adresi Giriniz">
                       <span class="text-danger ml-1"
                         *ngIf="(formControl.email.touched || submitted) && formControl.email.errors?.required">
-                        Lütfen geçerli bir mail adresi giriniz!
+                        <sup>*</sup>Lütfen geçerli bir mail adresi giriniz!
                       </span>
                     </div>
                   </div>
@@ -73,7 +73,7 @@
                         formControlName="password" id="exampleInputPassword1" placeholder="Şifre Giriniz">
                       <span class="text-danger ml-1"
                         *ngIf="(formControl.password.touched || submitted) && formControl.password.errors?.required">
-                        Lütfen geçerli bir mail adresi giriniz!
+                        <sup>*</sup>Lütfen geçerli bir mail adresi giriniz!
                       </span>
                     </div>
                   </div>

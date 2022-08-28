@@ -3,12 +3,15 @@ using HotelManagement.Bll.EntityCore.Abstract.Employees;
 using HotelManagement.Bll.Helpers;
 using HotelManagement.Bll.ValidationRule.FluentValidation.Employees;
 using HotelManagement.Core.Aspects.Autofac.Validation;
+using HotelManagement.Core.Helpers.Attributes;
 using HotelManagement.Core.Utilities.Results.Abstract;
 using HotelManagement.Core.Utilities.Results.Concrete;
 using HotelManagement.Dal.EfCore;
 using HotelManagement.Dal.EfCore.Concrete;
+using HotelManagement.Dto.Employees;
 using HotelManagement.Entity.Shared;
 using HotelManagement_Entity.Models.Employees;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +37,13 @@ namespace HotelManagement.Bll.EntityCore.Concrete.Employees
             if (FindBy(x => x.DataStatus == DataStatus.Activated && x.UserId == employee.UserId).Any())
                 return new ErrorResult("Seçilen kullanıcı zaten bir personele tanımlanmış!");
 
-            employee.EmployeeCode = Guid.NewGuid().ToString().Substring(0,5);
+
+            Random rastgele = new Random();
+            int sayi = rastgele.Next(0, 1000);
+            employee.EmployeeCode = employee.Name.Substring(0, 2).ToUpper() + employee.Surname.Substring(0, 2).ToUpper() + (sayi + 1).ToString();
+
+
+
             try
             {
                 Add(employee);
@@ -83,6 +92,29 @@ namespace HotelManagement.Bll.EntityCore.Concrete.Employees
         {
             var result = FindBy(m => m.DataStatus == DataStatus.Activated);
             return new SuccessDataResult<IQueryable<Employee>>(result);
+        }
+
+        /// <summary>
+        /// Tüm personelleri gride basmak amacıyla detay bilgileri ile birlikte döndürür.
+        /// </summary>
+        /// <returns></returns>
+        [CacheAspect(duration: 10)]
+        public IDataResult<IQueryable<EmployeeDto>> GetAllEmployeeDetailTable()
+        {
+            var employeeList = FindBy(m => m.DataStatus == DataStatus.Activated)
+                               .Select(s => new EmployeeDto
+                               {
+                                   Id = s.Id,
+                                   Email = s.Email,
+                                   EmployeeCode = s.EmployeeCode,
+                                   FullName = s.Name + " " + s.Surname,
+                                   JobStartDate = s.JobStartDate,
+                                   PhoneNumber = s.PhoneNumber,
+                                   Type = EnumDescriptionAttribute.GetEnumDescription(s.EmployeeType),
+                                   UserId = s.UserId
+                               })
+                               .AsNoTracking();
+            return new SuccessDataResult<IQueryable<EmployeeDto>>(employeeList);
         }
 
         /// <summary>

@@ -2,6 +2,7 @@
 using HotelManagement.Entity.Shared;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace HotelManagement_Entity.Models.Employees
@@ -59,20 +60,50 @@ namespace HotelManagement_Entity.Models.Employees
 
     public enum EmployeeType
     {
+        [Description("Genel Müdür")]
         GenelMudur,
+
+        [Description("Genel Müdür Yardımcısı")]
         GenelMudurYardimci,
+        
+        [Description("Ön Büro Personeli")]
         OnBuro,
+
+        [Description("Muhasebe")]
         Muhasebe,
+
+        [Description("Muhasebe Birim Müdürü")]
         MuhasebeMudur,
+
+        [Description("Temizlik Personeli")]
         Temizlik,
+
+        [Description("Mutfak Personeli")]
         Mutfak,
+
+        [Description("Teknik Personel")]
         Teknik,
+
+        [Description("Güvenlik Personeli")]
         Guvenlik,
+
+        [Description("Aktivite Personeli")]
         Aktivite,
+
+        [Description("İnsan Kaynakları")]
         InsanKaynaklari,
+
+        [Description("İnsan Kaynakları Birim Müdürü")]
         InsanKaynaklariMudur,
+
+
+        [Description("Satın Alma")]
         SatinAlma,
+
+        [Description("Satın Alma Birim Müdürü")]
         SatinAlmaMudur,
+
+        [Description("Stajyer")]
         Stajyer
     }
 }

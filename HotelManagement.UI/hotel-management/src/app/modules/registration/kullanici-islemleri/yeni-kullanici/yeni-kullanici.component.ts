@@ -88,7 +88,7 @@ export class YeniKullaniciComponent implements OnInit {
       name: ['', Validators.required],
       surname: ['', Validators.required],
       phoneNumber: ['', Validators.required],
-      email: ['', Validators.required, Validators.email],
+      email: ['', Validators.required],
       password: ['', Validators.required],
       username: ['', [Validators.required],this.customValidator.userNameValidator.bind(this.customValidator)],
       // photo:['',Validators.required]
@@ -100,7 +100,7 @@ export class YeniKullaniciComponent implements OnInit {
       name: ['', Validators.required],
       surname: ['', Validators.required],
       phoneNumber: ['', Validators.required],
-      email: ['', Validators.required, Validators.email],
+      email: ['', Validators.required],
       password: ['', Validators.required],
       username: ['', [Validators.required],this.customValidator.userNameValidator.bind(this.customValidator)],
       id:this.userId

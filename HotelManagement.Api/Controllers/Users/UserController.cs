@@ -144,6 +144,21 @@ namespace HotelManagement.Api.Controllers.Users
                 return Ok(result);
         }
 
+        /// <summary>
+        /// Select boxlar için kullanıcı listesi döndürür
+        /// </summary>
+        [HttpGet, Route("GetAllUsersForSelection")]
+        [Authorize]
+        [Produces("application/json")]
+        public IActionResult GetAllUsersForSelection()
+        {
+            var result = _service.GetAllUsersForSelection();
+            if (result.Success)
+                return Ok(result);
+            else
+                return Ok(result);
+        }
+
 
 
     }

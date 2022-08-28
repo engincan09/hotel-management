@@ -24,6 +24,7 @@ using Microsoft.EntityFrameworkCore;
 using HotelManagement.Core.Aspects.Autofac.Validation;
 using HotelManagement.Bll.ValidationRule.FluentValidation.Users;
 using HotelManagement.Aspects.Autofac.Caching;
+using HotelManagement.Dto.Users;
 
 namespace HotelManagement.Bll.EntityCore.Concrete.Users
 {
@@ -232,7 +233,7 @@ namespace HotelManagement.Bll.EntityCore.Concrete.Users
 
                 return new SuccessDataResult<LoginUser>(result);
             }
-            return new SuccessDataResult<LoginUser>(null,"Giriş yapan kullanıcının bilgileri bulunamadı!");
+            return new SuccessDataResult<LoginUser>(null, "Giriş yapan kullanıcının bilgileri bulunamadı!");
         }
 
         /// <summary>
@@ -262,7 +263,7 @@ namespace HotelManagement.Bll.EntityCore.Concrete.Users
             catch (Exception e)
             {
                 return new ErrorResult(SystemConstants.AddedErrorMessage);
-            }          
+            }
         }
 
         /// <summary>
@@ -288,7 +289,7 @@ namespace HotelManagement.Bll.EntityCore.Concrete.Users
                 catch (Exception)
                 {
                     return new ErrorResult(SystemConstants.DeletedErrorMessage);
-                }      
+                }
             }
         }
 
@@ -311,7 +312,7 @@ namespace HotelManagement.Bll.EntityCore.Concrete.Users
                                               (a.Email == login.Email || a.Username == login.Email)
                                            && a.Password == PasswordHash(login.Password)
                                            && a.DataStatus == DataStatus.Activated)
-                                    
+
                                       .FirstOrDefault();
 
             if (user == null)
@@ -347,10 +348,10 @@ namespace HotelManagement.Bll.EntityCore.Concrete.Users
         [ValidationAspect(typeof(UserValidator))]
         public IResult UpdateUser(User user)
         {
-            var hasData = FindBy(m=> m.DataStatus == DataStatus.Activated && 
+            var hasData = FindBy(m => m.DataStatus == DataStatus.Activated &&
                                       m.Id == user.Id)
                           .FirstOrDefault();
-            if (hasData== null)
+            if (hasData == null)
                 return new ErrorDataResult<User>(null, SystemConstants.NoData);
 
             try
@@ -371,6 +372,23 @@ namespace HotelManagement.Bll.EntityCore.Concrete.Users
             {
                 return new ErrorDataResult<User>(null, SystemConstants.UpdatedErrorMessage);
             }
+        }
+
+        /// <summary>
+        /// Select boxlar için kullanıcı listesi döndürür
+        /// </summary>
+        [CacheAspect(duration: 10)]
+        public IDataResult<IQueryable<UserSelectionDto>> GetAllUsersForSelection()
+        {
+            var userList = FindBy(m => m.DataStatus == DataStatus.Activated)
+                           .Select(s => new UserSelectionDto
+                           {
+                               UserId = s.Id,
+                               FullName = s.FullName
+                           })
+                           .AsNoTracking();
+            return new SuccessDataResult<IQueryable<UserSelectionDto>>(userList);
+
         }
     }
 }

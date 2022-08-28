@@ -101,5 +101,20 @@ namespace HotelManagement.Api.Controllers.Employees
             else
                 return Ok(result);
         }
+
+        /// <summary>
+        /// Tüm personelleri gride basmak amacıyla detay bilgileri ile birlikte döndürür.
+        /// </summary>
+        [HttpGet, Route("GetAllEmployeeDetailTable")]
+        [Authorize]
+        [Produces("application/json")]
+        public IActionResult GetAllEmployeeDetailTable()
+        {
+            var result = _service.GetAllEmployeeDetailTable();
+            if (result.Success)
+                return Ok(result);
+            else
+                return Ok(result);
+        }
     }
 }

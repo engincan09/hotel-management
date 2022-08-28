@@ -5,6 +5,7 @@ using HotelManagement.Core.Utilities.Results.Abstract;
 using HotelManagement.Dal.EfCore.Abstract;
 using HotelManagement.Dto.Shared;
 using HotelManagement.Dto.Systems;
+using HotelManagement.Dto.Users;
 using HotelManagement.Entity.Models.Users;
 
 namespace HotelManagement.Bll.EntityCore.Abstract.Users
@@ -34,6 +35,7 @@ namespace HotelManagement.Bll.EntityCore.Abstract.Users
         IResult DeleteUser(int id);
 
         IDataResult<ResponseLogin> Authenticate(Login login);
+        IDataResult<IQueryable<UserSelectionDto>> GetAllUsersForSelection();
 
     }
 }
