@@ -120,10 +120,33 @@ namespace HotelManagement.Dal.EfCore.Seed.Systems
                     Id = 10,
                     ParentId = 3,
                     Order = 1,
+                    Name = "Organizasyon Kadro İşlemleri",
+                    AllName = "Yönetim Paneli / İdari İşler / Organizasyon Kadro İşlemleri",
+                    RouterLink = "/organizasyon-kadro-islemleri",
+                    AllRouterLink = "/yonetim/idari-isler/organizasyon-kadro-islemleri",
+                    MenuShow = true,
+                    Icon ="fa fa-sitemap"
+                },
+                new Page
+                {
+                    Id = 11,
+                    ParentId = 10,
+                    Order = 1,
                     Name = "Organizasyon Şeması",
-                    AllName = "Yönetim Paneli / İdari İşler/ Organizasyon Şeması",
+                    AllName = "Yönetim Paneli / İdari İşler/ Organizasyon Kadro İşlemleri / Organizasyon Şeması",
                     RouterLink = "/organizasyon-semasi",
-                    AllRouterLink = "/yonetim/idari-isler/organizasyon-semasi",
+                    AllRouterLink = "/yonetim/idari-isler/organizasyon-kadro-islemleri/organizasyon-semasi",
+                    MenuShow = true
+                },
+                 new Page
+                {
+                    Id = 12,
+                    ParentId = 10,
+                    Order = 1,
+                    Name = "Yeni Birim",
+                    AllName = "Yönetim Paneli / İdari İşler/ Organizasyon Kadro İşlemleri / Yeni Birim",
+                    RouterLink = "/yeni-birim",
+                    AllRouterLink = "/yonetim/idari-isler/organizasyon-kadro-islemleri/yeni-birim",
                     MenuShow = true
                 },
         };

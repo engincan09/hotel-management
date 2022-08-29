@@ -1,4 +1,4 @@
-import { OrganizasyonSemasiComponent } from './organizasyon-semasi/organizasyon-semasi.component';
+import { OrganizasyonSemasiComponent } from './organizasyon-islemleri/organizasyon-semasi/organizasyon-semasi.component';
 import { PersonelIslemleriModule } from './personel-islemleri/personel-islemleri.module';
 import { Routes } from '@angular/router';
 import { AuthGuardService } from 'src/app/shared/services/auth-guard.service';
@@ -22,11 +22,13 @@ export const RegistrationRoutes: Routes = [
             ),
         },
         {
-          path: 'organizasyon-semasi',
-          canActivate: [AuthGuardService],
-          data: { pageId: 10 },
-          component: OrganizasyonSemasiComponent,
+          path: 'organizasyon-kadro-islemleri',
+          loadChildren: () =>
+            import('./organizasyon-islemleri/organizasyon.module').then(
+              (m) => m.OrganizasyonModule
+            ),
         },
+        
       ],
     },
   ];

@@ -71,6 +71,39 @@
             Tüm personelleri gride basmak amacıyla detay bilgileri ile birlikte döndürür.
             </summary>
         </member>
+        <member name="M:HotelManagement.Api.Controllers.Systems.OrganizasyonController.#ctor(HotelManagement.Bll.EntityCore.Abstract.Systems.IOrganizasyonRepository)">
+            <summary>
+            Yapıcı
+            </summary>
+            <param name="employeeRepository"></param>
+        </member>
+        <member name="M:HotelManagement.Api.Controllers.Systems.OrganizasyonController.GetAllOrganizasyon">
+            <summary>
+            Tüm organizasyon verilerini getirir.
+            </summary>
+        </member>
+        <member name="M:HotelManagement.Api.Controllers.Systems.OrganizasyonController.GetById(System.Int32)">
+            <summary>
+            Tekil bilgisine göre organizasyon döndürür
+            </summary>
+        </member>
+        <member name="M:HotelManagement.Api.Controllers.Systems.OrganizasyonController.PostOrganizasyon(HotelManagement_Entity.Models.Systems.Organizasyon)">
+            <summary>
+            Yeni organizasyon kaydı
+            </summary>
+        </member>
+        <member name="M:HotelManagement.Api.Controllers.Systems.OrganizasyonController.UpdateOrganizasyon(HotelManagement_Entity.Models.Systems.Organizasyon)">
+            <summary>
+            organizasyon kaydını değişen alanlara göre günceller.
+            </summary>
+        </member>
+        <member name="M:HotelManagement.Api.Controllers.Systems.OrganizasyonController.DeleteOrganizasyon(System.Int32)">
+            <summary>
+            organizasyon kaydını siler
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
         <member name="M:HotelManagement.Api.Controllers.Systems.PageController.#ctor(HotelManagement.Bll.EntityCore.Abstract.Systems.IPageRepository,HotelManagement.Bll.EntityCore.Abstract.Systems.IPagePermissionRepository,HotelManagement.Core.Middleware.ICustomHttpContextAccessor)">
             <summary>
             Yapıcı method.

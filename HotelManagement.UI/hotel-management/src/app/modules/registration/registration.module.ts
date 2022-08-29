@@ -1,5 +1,5 @@
 import { SharedModule } from './../../shared/shared.module';
-import { OrganizasyonSemasiComponent } from './organizasyon-semasi/organizasyon-semasi.component';
+import { OrganizasyonSemasiComponent } from './organizasyon-islemleri/organizasyon-semasi/organizasyon-semasi.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -7,7 +7,7 @@ import { DashboardLayoutModule } from 'src/app/shared/layouts/dashboard-layout/d
 import { RegistrationRoutes } from './registration.routing';
 
 @NgModule({
-  declarations: [OrganizasyonSemasiComponent],
+  declarations: [],
   imports: [
     CommonModule,
     RouterModule.forChild(RegistrationRoutes),
