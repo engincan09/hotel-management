@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CustomvalidationService } from 'src/app/shared/services/custom-validation.service';
 import { environment } from 'src/environments/environment';
 import { UserService } from '../../kullanici-islemleri/services/user.service';
-import { Employee, EmployeeTypeDataSource } from '../models/employee.model';
+import { Employee } from '../models/employee.model';
 import { EmployeeService } from '../services/employee.service';
 declare var $;
 @Component({
@@ -19,7 +19,6 @@ export class YeniPersonelComponent implements OnInit {
   employeeId: number;
   environment = environment;
   submitted = false;
-  employeeTypeDataSource = EmployeeTypeDataSource;
   userDataSource;
   constructor( private formBuilder: FormBuilder,
     private toastr: ToastrService,

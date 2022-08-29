@@ -110,7 +110,6 @@ namespace HotelManagement.Bll.EntityCore.Concrete.Employees
                                    FullName = s.Name + " " + s.Surname,
                                    JobStartDate = s.JobStartDate,
                                    PhoneNumber = s.PhoneNumber,
-                                   Type = EnumDescriptionAttribute.GetEnumDescription(s.EmployeeType),
                                    UserId = s.UserId
                                })
                                .AsNoTracking();
@@ -158,7 +157,6 @@ namespace HotelManagement.Bll.EntityCore.Concrete.Employees
                 hasData.PhoneNumber = employee.PhoneNumber;
                 hasData.Email = employee.Email;
                 hasData.JobStartDate = employee.JobStartDate;
-                hasData.EmployeeType = employee.EmployeeType;
                 Update(hasData);
                 Commit();
 

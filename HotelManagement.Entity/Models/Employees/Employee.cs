@@ -1,5 +1,6 @@
 ﻿using HotelManagement.Entity.Models.Users;
 using HotelManagement.Entity.Shared;
+using HotelManagement_Entity.Models.Systems;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,9 +21,9 @@ namespace HotelManagement_Entity.Models.Employees
         public int? UserId { get; set; }
 
         /// <summary>
-        /// Personel Tipi
+        /// Personel organizasyon bilgisi
         /// </summary>
-        public EmployeeType EmployeeType { get; set; }
+        public int? OrganizasyonId { get; set; }
 
         /// <summary>
         /// Personel Sicil numarası/kodu
@@ -56,54 +57,6 @@ namespace HotelManagement_Entity.Models.Employees
 
         public int MyProperty { get; set; }
         public User User { get; set; }
-    }
-
-    public enum EmployeeType
-    {
-        [Description("Genel Müdür")]
-        GenelMudur,
-
-        [Description("Genel Müdür Yardımcısı")]
-        GenelMudurYardimci,
-        
-        [Description("Ön Büro Personeli")]
-        OnBuro,
-
-        [Description("Muhasebe")]
-        Muhasebe,
-
-        [Description("Muhasebe Birim Müdürü")]
-        MuhasebeMudur,
-
-        [Description("Temizlik Personeli")]
-        Temizlik,
-
-        [Description("Mutfak Personeli")]
-        Mutfak,
-
-        [Description("Teknik Personel")]
-        Teknik,
-
-        [Description("Güvenlik Personeli")]
-        Guvenlik,
-
-        [Description("Aktivite Personeli")]
-        Aktivite,
-
-        [Description("İnsan Kaynakları")]
-        InsanKaynaklari,
-
-        [Description("İnsan Kaynakları Birim Müdürü")]
-        InsanKaynaklariMudur,
-
-
-        [Description("Satın Alma")]
-        SatinAlma,
-
-        [Description("Satın Alma Birim Müdürü")]
-        SatinAlmaMudur,
-
-        [Description("Stajyer")]
-        Stajyer
+        public Organizasyon Organizasyon { get; set; }
     }
 }
