@@ -112,7 +112,18 @@ namespace HotelManagement.Dal.EfCore.Seed.Systems
                     Name = "Yeni Kullanıcı",
                     AllName = "Yönetim Paneli / İdari İşler/ Personel İşlemleri / Yeni Personel",
                     RouterLink = "/yeni-personel",
-                    AllRouterLink = "/yonetim/idari-isler/personel-islemleri/tum-kullanicilar/yeni-personel",
+                    AllRouterLink = "/yonetim/idari-isler/personel-islemleri/yeni-personel",
+                    MenuShow = true
+                },
+                new Page
+                {
+                    Id = 10,
+                    ParentId = 3,
+                    Order = 1,
+                    Name = "Organizasyon Şeması",
+                    AllName = "Yönetim Paneli / İdari İşler/ Organizasyon Şeması",
+                    RouterLink = "/organizasyon-semasi",
+                    AllRouterLink = "/yonetim/idari-isler/organizasyon-semasi",
                     MenuShow = true
                 },
         };

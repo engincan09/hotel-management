@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
 import { InLoadingPopupComponent } from './tools/in-loading-popup/in-loading-popup.component';
 import { ConfirmationDialogService } from './services/confirmation-dialog.service';
+import { NgxOrgChartModule } from 'ngx-org-chart';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { ConfirmationDialogService } from './services/confirmation-dialog.servic
         FormsModule,
         RouterModule,
         ReactiveFormsModule,
+        NgxOrgChartModule
     ],
     declarations: [
         InLoadingPopupComponent,
@@ -30,6 +32,7 @@ import { ConfirmationDialogService } from './services/confirmation-dialog.servic
         FormsModule,
         RouterModule,
         ReactiveFormsModule,
+        NgxOrgChartModule,
         InLoadingPopupComponent,
         InImageCropperComponent
     ],

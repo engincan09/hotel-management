@@ -1,8 +1,10 @@
 ﻿using Autofac;
 using Autofac.Extras.DynamicProxy;
 using Castle.DynamicProxy;
+using HotelManagement.Bll.EntityCore.Abstract.Employees;
 using HotelManagement.Bll.EntityCore.Abstract.Systems;
 using HotelManagement.Bll.EntityCore.Abstract.Users;
+using HotelManagement.Bll.EntityCore.Concrete.Employees;
 using HotelManagement.Bll.EntityCore.Concrete.Systems;
 using HotelManagement.Bll.EntityCore.Concrete.Users;
 using HotelManagement.Core.Helpers.Interceptors;
@@ -27,6 +29,9 @@ namespace HotelManagement.Bll.DependencyResolvers.Autofac
             builder.RegisterType<RoleRepository>().As<IRoleRepository>().SingleInstance();
             builder.RegisterType<UserRepository>().As<IUserRepository>().SingleInstance();
             builder.RegisterType<UserRoleRepository>().As<IUserRoleRepository>().SingleInstance();
+            #endregion
+            #region Employee
+            builder.RegisterType<EmployeeRepository>().As<IEmployeeRepository>().SingleInstance();
             #endregion
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();

@@ -31,10 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="EfCore\Seed\Users\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\HotelManagement.Entity\HotelManagement.Entity.csproj" />
   </ItemGroup>
 
