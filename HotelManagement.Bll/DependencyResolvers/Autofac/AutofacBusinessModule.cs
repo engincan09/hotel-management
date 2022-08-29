@@ -23,6 +23,7 @@ namespace HotelManagement.Bll.DependencyResolvers.Autofac
             builder.RegisterType<LookupTypeRepository>().As<ILookupTypeRepository>().SingleInstance();
             builder.RegisterType<PageRepository>().As<IPageRepository>().SingleInstance();
             builder.RegisterType<PagePermissionRepository>().As<IPagePermissionRepository>().SingleInstance();
+            builder.RegisterType<OrganizasyonRepository>().As<IOrganizasyonRepository>().SingleInstance();
             #endregion
 
             #region User
