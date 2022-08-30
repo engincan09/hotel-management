@@ -36,7 +36,7 @@ namespace HotelManagement_Entity.Models.Systems
         [MaxLength(64)]
         public string Code { get; set; }
 
-        public bool IsBirimMudur { get; set; }
+        public bool? IsBirimMudur { get; set; }
 
         /// <summary>
         /// Üst pozisyon bilgilerini döndürür.

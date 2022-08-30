@@ -17,4 +17,10 @@ export const OrganizasyonRoutes: Routes = [
     data: { pageId: 12 },
     component: YeniBirimComponent,
   },
+  {
+    path: 'yeni-birim/:id',
+    canActivate: [AuthGuardService],
+    data: { pageId: 12 },
+    component: YeniBirimComponent,
+  },
 ];

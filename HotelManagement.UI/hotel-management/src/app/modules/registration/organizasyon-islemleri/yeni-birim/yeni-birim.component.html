@@ -1,3 +1,102 @@
-<p>
-  yeni-birim works!
-</p>
+<div class="content">
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">Birim Listesi</h3>
+        </div>
+        <div class="card-body">
+          <div class="d-flex flex-row-reverse mb-2 mt-2">
+            <button type="submit" class="btn btn-success"
+            (click)="openPopup(null)"><i class="fa fa-plus"></i>Yeni</button>
+          </div>  
+          <div id="jsGrid1"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">{{birim.id?'Güncelle':'Kaydet'}}</h4>
+      </div>
+      <div class="modal-body">
+        <div class="custom-form">
+          <form id="quickForm" [formGroup]="birimForm">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleInputName">Birim Adı *</label>
+                    <input [(ngModel)]="birim.name" type="text" name="name" required class="form-control"
+                      formControlName="name" id="exampleInputName" placeholder="Birim adı Giriniz" required>
+                    <span class="text-danger ml-1"
+                      *ngIf="(formControl?.name.touched || submitted) && formControl?.name.errors?.required">
+                      <sup>*</sup>Lütfen bir birim adı giriniz!
+                    </span>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleInputName">Üst Pozisyon</label>
+                    <select class="custom-select form-control-border" id="exampleSelectBorder"  [(ngModel)]="birim.parentId"  formControlName="parentId"  (change)="changeBirim($event)">
+                      <option selected disabled>Üst Pozisyon Seçiniz</option>
+                      <option *ngFor="let birimSelect of birimSelectBoxDataSource" [value]="birimSelect.id">
+                        {{ birimSelect.name }}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleInputPhone">Kadro Sayısı *</label>
+                    <input [(ngModel)]="birim.numberOfStaff" type="number" name="numberOfStaff" required
+                      class="form-control" formControlName="numberOfStaff" id="exampleInputNumberOfStaff"
+                      placeholder="Kadro Sayısı Giriniz">
+                    <span class="text-danger ml-1"
+                      *ngIf="(formControl?.numberOfStaff.touched || submitted) && formControl?.numberOfStaff.errors?.required">
+                      <sup>*</sup>Lütfen kadro sayısı giriniz!
+                    </span>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleInputPhone">Birim Kodu</label>
+                    <input [(ngModel)]="birim.code" type="number" name="code" required
+                      class="form-control" formControlName="code" id="code"
+                      placeholder="Birim Kodu Giriniz">
+                    <span class="text-danger ml-1"
+                      *ngIf="(formControl?.code.touched || submitted) && formControl?.code.errors?.required">
+                      <sup>*</sup>Lütfen birim kodu giriniz!
+                    </span>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleInput">Birim Müdürü Olarak İşaretle</label>
+                   
+                  </div>
+                </div>
+              </div>  
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary"
+        (click)="saveOrganizasyon()">{{birim?.id?'Güncelle':'Kaydet'}}</button>
+        <button type="button" class="btn btn-danger" 
+                (click)="closePopup()">
+          Kapat
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

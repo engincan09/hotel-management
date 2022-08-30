@@ -1,6 +1,6 @@
 import { BaseEntity } from "src/app/shared/models/base-entity.model";
 import { User } from "../../kullanici-islemleri/models/user.model";
-import { Organizasyon } from "../../models/organizasyon.model";
+import { Organizasyon } from "../../organizasyon-islemleri/models/organizasyon.model";
 
 export class Employee extends BaseEntity {
     /**Tablo tekil bilgisdir. */

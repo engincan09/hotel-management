@@ -82,6 +82,11 @@
             Tüm organizasyon verilerini getirir.
             </summary>
         </member>
+        <member name="M:HotelManagement.Api.Controllers.Systems.OrganizasyonController.GetAllOrganizasyoneDetailTable">
+            <summary>
+            Tüm organizasyon verilerini getirir.
+            </summary>
+        </member>
         <member name="M:HotelManagement.Api.Controllers.Systems.OrganizasyonController.GetById(System.Int32)">
             <summary>
             Tekil bilgisine göre organizasyon döndürür

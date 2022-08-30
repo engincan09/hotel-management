@@ -7,8 +7,10 @@ using HotelManagement.Core.Utilities.Results.Abstract;
 using HotelManagement.Core.Utilities.Results.Concrete;
 using HotelManagement.Dal.EfCore;
 using HotelManagement.Dal.EfCore.Concrete;
+using HotelManagement.Dto.Systems;
 using HotelManagement.Entity.Shared;
 using HotelManagement_Entity.Models.Systems;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -82,6 +84,22 @@ namespace HotelManagement.Bll.EntityCore.Concrete.Systems
         {
             var result = FindBy(m => m.DataStatus == DataStatus.Activated);
             return new SuccessDataResult<IQueryable<Organizasyon>>(result);
+        }
+
+        public IDataResult<IQueryable<OrganizasyonDto>> GetAllOrganizasyoneDetailTable()
+        {
+            var orgList = FindBy(m => m.DataStatus == DataStatus.Activated)
+                          .Select(s => new OrganizasyonDto
+                          {
+                              Code = s.Code,
+                              Name = s.Name,
+                              Id = s.Id,
+                              IsBirimMudur = s.IsBirimMudur,
+                              NumberOfStaff = s.NumberOfStaff,
+                              ParentName = s.Parent.Name
+                          }).AsNoTracking();
+            return new SuccessDataResult<IQueryable<OrganizasyonDto>>(orgList);
+
         }
 
         /// <summary>

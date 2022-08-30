@@ -1,5 +1,6 @@
 ﻿using HotelManagement.Core.Utilities.Results.Abstract;
 using HotelManagement.Dal.EfCore.Abstract;
+using HotelManagement.Dto.Systems;
 using HotelManagement_Entity.Models.Systems;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,9 @@ namespace HotelManagement.Bll.EntityCore.Abstract.Systems
         IResult UpdateOrganizasyon(Organizasyon organizasyon);
 
         IResult DeleteOrganizasyon(int id);
+
+        IDataResult<IQueryable<OrganizasyonDto>> GetAllOrganizasyoneDetailTable();
+
 
     }
 }

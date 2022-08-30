@@ -41,6 +41,20 @@ namespace HotelManagement.Api.Controllers.Systems
         }
 
         /// <summary>
+        /// Tüm organizasyon verilerini getirir.
+        /// </summary>
+        [HttpGet, Route("GetAllOrganizasyoneDetailTable")]
+        [Produces("application/json")]
+        public IActionResult GetAllOrganizasyoneDetailTable()
+        {
+            var result = _service.GetAllOrganizasyoneDetailTable();
+            if (result.Success)
+                return Ok(result);
+            else
+                return Ok(result);
+        }
+
+        /// <summary>
         /// Tekil bilgisine göre organizasyon döndürür
         /// </summary>
         [HttpGet, Route("GetById/{key:int}")]
